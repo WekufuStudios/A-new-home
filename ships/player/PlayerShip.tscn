@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7huqukkasfir"]
+
+[ext_resource type="PackedScene" uid="uid://by1ijr7rwlm80" path="res://ships/Ship.tscn" id="1_ri7gj"]
+[ext_resource type="Script" path="res://ships/player/PlayerShip.gd" id="2_lyb4r"]
+[ext_resource type="PackedScene" uid="uid://ceqgd5vehjdj4" path="res://ships/thrusters/SmallThruster.tscn" id="2_mirvd"]
+[ext_resource type="Script" path="res://ships/player/UI.gd" id="4_56w24"]
+[ext_resource type="Texture2D" uid="uid://d3ibgqaebp6ty" path="res://assets/art/ui/progress bar.png" id="4_m64n3"]
+[ext_resource type="Script" path="res://ships/Canon.gd" id="4_v6lfh"]
+[ext_resource type="Texture2D" uid="uid://d31skqn80qeyp" path="res://assets/art/ui/shield_icon.png" id="6_fa2ct"]
+[ext_resource type="Texture2D" uid="uid://dxp6t6dsbnfpr" path="res://assets/art/ui/fuel_icon.png" id="8_f6cbr"]
+
+[node name="PlayerShip" instance=ExtResource("1_ri7gj")]
+mass = 500.0
+script = ExtResource("2_lyb4r")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-3, -10, 3, -10, 6, -7, 6, -5, 7, -5, 10, -2, 10, 5, 9, 6, 5, 6, 5, 9, 4, 10, -4, 10, -5, 9, -5, 6, -9, 6, -10, 5, -10, -2, -7, -5, -6, -5, -6, -7)
+
+[node name="SmallThruster" parent="Thrusters/Up" index="0" instance=ExtResource("2_mirvd")]
+position = Vector2(0, -10)
+rotation = -1.5708
+
+[node name="SmallThruster" parent="Thrusters/Down" index="0" instance=ExtResource("2_mirvd")]
+position = Vector2(-2, 10)
+rotation = 1.5708
+
+[node name="SmallThruster2" parent="Thrusters/Down" index="1" instance=ExtResource("2_mirvd")]
+position = Vector2(2, 10)
+rotation = 1.5708
+
+[node name="SmallThruster" parent="Thrusters/LeftUp" index="0" instance=ExtResource("2_mirvd")]
+position = Vector2(-6, -7)
+rotation = -3.61748
+
+[node name="SmallThruster" parent="Thrusters/LeftDown" index="0" instance=ExtResource("2_mirvd")]
+position = Vector2(-5, 8)
+rotation = 3.33455
+
+[node name="SmallThruster" parent="Thrusters/RightUp" index="0" instance=ExtResource("2_mirvd")]
+position = Vector2(6, -7)
+rotation = 0.451526
+
+[node name="SmallThruster" parent="Thrusters/RightDown" index="0" instance=ExtResource("2_mirvd")]
+position = Vector2(5, 8)
+rotation = -0.166411
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
+ignore_rotation = false
+position_smoothing_speed = 16.0
+
+[node name="Canon" type="Node2D" parent="." index="5"]
+script = ExtResource("4_v6lfh")
+
+[node name="Marker2D" type="Marker2D" parent="Canon" index="0"]
+position = Vector2(-2, -12)
+
+[node name="Marker2D2" type="Marker2D" parent="Canon" index="1"]
+position = Vector2(2, -12)
+
+[node name="LandTimer" type="Timer" parent="." index="6"]
+wait_time = 3.0
+one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="." index="7"]
+wait_time = 0.2
+
+[node name="UI" type="CanvasLayer" parent="." index="8"]
+script = ExtResource("4_56w24")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" index="0"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer" index="0"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("6_fa2ct")
+
+[node name="ConditionBar" type="TextureProgressBar" parent="UI/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 2
+value = 50.0
+texture_under = ExtResource("4_m64n3")
+texture_progress = ExtResource("4_m64n3")
+tint_progress = Color(0.352941, 0.341176, 0.333333, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/VBoxContainer/HBoxContainer2" index="0"]
+layout_mode = 2
+texture = ExtResource("8_f6cbr")
+
+[node name="FuelBar" type="TextureProgressBar" parent="UI/MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
+layout_mode = 2
+value = 51.0
+texture_under = ExtResource("4_m64n3")
+texture_progress = ExtResource("4_m64n3")
+tint_progress = Color(0.227451, 0.101961, 0.027451, 1)

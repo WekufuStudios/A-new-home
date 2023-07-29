@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://cg53b34l2ok0t"]
+
+[ext_resource type="Script" path="res://ships/enemies/Laser.gd" id="1_jaq6k"]
+
+[sub_resource type="Gradient" id="Gradient_7c36y"]
+offsets = PackedFloat32Array(0.00363636, 0.527273, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b2qe2"]
+gradient = SubResource("Gradient_7c36y")
+
+[sub_resource type="Curve" id="Curve_f2me8"]
+max_value = 50.0
+_data = [Vector2(0, 3.15789), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3tvsa"]
+curve = SubResource("Curve_f2me8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m1lmg"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 80.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 50.0
+damping_max = 50.0
+damping_curve = SubResource("CurveTexture_3tvsa")
+color = Color(0.94902, 0.411765, 0.345098, 1)
+color_ramp = SubResource("GradientTexture1D_b2qe2")
+
+[node name="Laser" type="RayCast2D"]
+target_position = Vector2(50, 0)
+collision_mask = 7
+script = ExtResource("1_jaq6k")
+
+[node name="TextureLine" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 10, 0)
+width = 4.0
+default_color = Color(0.721569, 0.113725, 0.0784314, 1)
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="CollideParticles" type="GPUParticles2D" parent="."]
+position = Vector2(10, 0)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_m1lmg")
+lifetime = 0.5

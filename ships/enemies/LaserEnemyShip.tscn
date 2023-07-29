@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr2v6ctkmcent"]
+
+[ext_resource type="PackedScene" uid="uid://by1ijr7rwlm80" path="res://ships/Ship.tscn" id="1_3wr8t"]
+[ext_resource type="Texture2D" uid="uid://biy1se574ooqi" path="res://assets/art/ships/enemy-1.png" id="2_5lxfw"]
+[ext_resource type="Script" path="res://ships/enemies/LaserEnemyShip.gd" id="2_tool1"]
+[ext_resource type="PackedScene" uid="uid://ceqgd5vehjdj4" path="res://ships/thrusters/SmallThruster.tscn" id="4_vv8cu"]
+[ext_resource type="PackedScene" uid="uid://cg53b34l2ok0t" path="res://ships/enemies/Laser.tscn" id="5_cpufx"]
+
+[node name="LaserEnemyShip" instance=ExtResource("1_3wr8t")]
+mass = 250.0
+script = ExtResource("2_tool1")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_5lxfw")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-7, -9, -5, -9, -5, -8, -4, -8, -4, -6, -6, -6, -6, 2, -5, 2, -5, 1, -3, 1, -3, -2, -2, -2, -2, -3, 2, -3, 2, -2, 3, -2, 3, 1, 5, 1, 5, 2, 6, 2, 6, -6, 4, -6, 4, -8, 5, -8, 5, -9, 7, -9, 7, -8, 8, -8, 8, -7, 9, -7, 9, -6, 10, -6, 10, 4, 9, 4, 9, 6, 8, 6, 8, 7, 7, 7, 7, 6, 4, 6, 4, 5, 2, 5, 2, 7, 1, 7, 1, 8, -1, 8, -1, 7, -2, 7, -2, 5, -4, 5, -4, 6, -7, 6, -7, 7, -8, 7, -8, 6, -9, 6, -9, 4, -10, 4, -10, -6, -9, -6, -9, -7, -8, -7, -8, -8, -7, -8)
+
+[node name="SmallThruster" parent="Thrusters/Up" index="0" instance=ExtResource("4_vv8cu")]
+position = Vector2(-6, -10)
+rotation = -1.5708
+
+[node name="SmallThruster2" parent="Thrusters/Up" index="1" instance=ExtResource("4_vv8cu")]
+position = Vector2(6, -10)
+rotation = -1.5708
+
+[node name="SmallThruster" parent="Thrusters/Down" index="0" instance=ExtResource("4_vv8cu")]
+position = Vector2(0, 9)
+rotation = 1.5708
+
+[node name="SmallThruster" parent="Thrusters/LeftUp" index="0" instance=ExtResource("4_vv8cu")]
+position = Vector2(-9, -8)
+rotation = -3.39955
+
+[node name="SmallThruster" parent="Thrusters/LeftDown" index="0" instance=ExtResource("4_vv8cu")]
+position = Vector2(-9, 6)
+rotation = 3.50778
+
+[node name="SmallThruster" parent="Thrusters/RightUp" index="0" instance=ExtResource("4_vv8cu")]
+position = Vector2(9, -8)
+rotation = 0.161227
+
+[node name="SmallThruster" parent="Thrusters/RightDown" index="0" instance=ExtResource("4_vv8cu")]
+position = Vector2(9, 6)
+rotation = -0.373357
+
+[node name="LifeComponent" parent="." index="3"]
+hp = 30
+max_hp = 30
+
+[node name="Laser" parent="." index="4" instance=ExtResource("5_cpufx")]
+position = Vector2(0, -4)
+rotation = -1.5708

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://p6srb2wo8c64"]
+
+[ext_resource type="Script" path="res://space_bodies/asteroids/Asteroid.gd" id="1_6fp0c"]
+
+[node name="Asteroid" type="RigidBody2D"]
+inertia = 1500.0
+script = ExtResource("1_6fp0c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
