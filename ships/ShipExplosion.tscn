@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://k8o8c57wcwhh"]
+[gd_scene load_steps=6 format=3 uid="uid://k8o8c57wcwhh"]
 
 [ext_resource type="Texture2D" uid="uid://iv7nf7t3r6l4" path="res://assets/art/effects/explosion-pixelart.png" id="1_75s3n"]
+[ext_resource type="AudioStream" uid="uid://d001fxvwkhrb8" path="res://assets/sounds/Big Explosion Distant.mp3" id="2_8ybo6"]
 
 [sub_resource type="Animation" id="Animation_bqwhs"]
 resource_name = "explode"
@@ -32,6 +33,21 @@ tracks/1/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.544759,
+"start_offset": 0.0,
+"stream": ExtResource("2_8ybo6")
+}],
+"times": PackedFloat32Array(-0.88)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_jg0x8"]
 length = 0.001
@@ -63,3 +79,6 @@ autoplay = "explode"
 libraries = {
 "": SubResource("AnimationLibrary_7upmg")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_8ybo6")
