@@ -99,7 +99,7 @@ func _physics_process(delta: float) -> void:
 
 	if contacts_with_planet > 0 and not disabled and land_timer.is_stopped() and linear_velocity.length() < MAX_LINEAR_VELOCITY_TO_LAND and angular_velocity < MAX_ANGULAR_VELOCITY_TO_LAND:
 		land_timer.start()
-	elif contacts_with_planet == 0 and not land_timer.is_stopped():
+	elif (contacts_with_planet == 0 or mov_direction != Vector2.ZERO or turn_dir != 0) and not land_timer.is_stopped():
 		land_timer.stop()
 
 

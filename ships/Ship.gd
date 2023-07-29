@@ -1,6 +1,7 @@
 @icon("res://assets/art/ships/ship-1.png")
 class_name Ship extends RigidBody2D
 
+const SHIP_EXPLOSION_SCENE: PackedScene = preload("res://ships/ShipExplosion.tscn")
 
 @export var speed: int = 20000
 @export var rot_speed: int = 15000
@@ -51,7 +52,10 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_destroy() -> void:
-	pass
+	var explosion: Sprite2D = SHIP_EXPLOSION_SCENE.instantiate()
+	explosion.position = position
+	explosion.rotation = randf_range(0, 2*PI)
+	get_tree().current_scene.add_child(explosion)
 
 
 func _enable_thrusters(at: String) -> void:
