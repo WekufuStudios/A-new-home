@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpq0ajuv67wws"]
+
+[ext_resource type="Texture2D" uid="uid://b020blvgpo2ne" path="res://assets/art/light_fire.png" id="1_iogg6"]
+
+[node name="Sun" type="PointLight2D"]
+color = Color(1, 0.980392, 0.713726, 1)
+texture = ExtResource("1_iogg6")
+texture_scale = 3.0

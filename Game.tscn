@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cn00mn4ive2ax"]
+[gd_scene load_steps=11 format=3 uid="uid://cn00mn4ive2ax"]
 
 [ext_resource type="PackedScene" uid="uid://c7huqukkasfir" path="res://ships/player/PlayerShip.tscn" id="1_1h5ul"]
 [ext_resource type="Texture2D" uid="uid://dk2xkg2r3sfrm" path="res://assets/art/nebulosa_1.png" id="1_ac1sf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Theme" uid="uid://h480sux0ug1" path="res://menus/Theme.tres" id="7_1sskg"]
 [ext_resource type="Script" path="res://menus/PauseMenu.gd" id="8_gix8i"]
 [ext_resource type="Script" path="res://menus/QuitButton.gd" id="8_tevjs"]
+[ext_resource type="PackedScene" uid="uid://bpq0ajuv67wws" path="res://space_bodies/sun.tscn" id="10_cps5n"]
 
 [node name="Game" type="Node2D"]
 
@@ -89,3 +90,7 @@ text = "Resume"
 layout_mode = 2
 text = "Quit"
 script = ExtResource("8_tevjs")
+
+[node name="Sun" parent="." instance=ExtResource("10_cps5n")]
+position = Vector2(588, -101)
+texture_scale = 21.46
