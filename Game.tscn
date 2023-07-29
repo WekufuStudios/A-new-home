@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cn00mn4ive2ax"]
 
 [ext_resource type="PackedScene" uid="uid://c7huqukkasfir" path="res://ships/player/PlayerShip.tscn" id="1_1h5ul"]
-[ext_resource type="Texture2D" uid="uid://dk2xkg2r3sfrm" path="res://assets/art/nebulosa_1.png" id="1_ac1sf"]
+[ext_resource type="Texture2D" uid="uid://b2g3joteis713" path="res://assets/art/Space Background.png" id="1_gp3hy"]
 [ext_resource type="PackedScene" uid="uid://drsgpprg0hjko" path="res://space_bodies/planets/Planet1.tscn" id="3_jxt6p"]
 [ext_resource type="PackedScene" uid="uid://bs8d3qxqhi63b" path="res://space_bodies/asteroids/Asteroid1.tscn" id="4_4oy65"]
 [ext_resource type="PackedScene" uid="uid://cy3ypb8ikk6e0" path="res://space_bodies/asteroids/Asteroid3.tscn" id="5_mo1o2"]
@@ -9,13 +9,25 @@
 [ext_resource type="Theme" uid="uid://h480sux0ug1" path="res://menus/Theme.tres" id="7_1sskg"]
 [ext_resource type="Script" path="res://menus/PauseMenu.gd" id="8_gix8i"]
 [ext_resource type="Script" path="res://menus/QuitButton.gd" id="8_tevjs"]
-[ext_resource type="PackedScene" path="res://space_bodies/sun.tscn" id="10_cps5n"]
+[ext_resource type="PackedScene" uid="uid://bpq0ajuv67wws" path="res://space_bodies/sun.tscn" id="10_cps5n"]
 
 [node name="Game" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ac1sf")
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(1, 1, 1, 0.6)
+z_index = -10
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(-1067, -936)
+texture = ExtResource("1_gp3hy")
 centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 2000)
 
 [node name="Ship1" parent="." instance=ExtResource("1_1h5ul")]
 position = Vector2(200, 132)
