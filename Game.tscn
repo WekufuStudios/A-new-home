@@ -9,7 +9,7 @@
 [ext_resource type="Theme" uid="uid://h480sux0ug1" path="res://menus/Theme.tres" id="7_1sskg"]
 [ext_resource type="Script" path="res://menus/PauseMenu.gd" id="8_gix8i"]
 [ext_resource type="Script" path="res://menus/QuitButton.gd" id="8_tevjs"]
-[ext_resource type="PackedScene" uid="uid://bpq0ajuv67wws" path="res://space_bodies/sun.tscn" id="10_cps5n"]
+[ext_resource type="PackedScene" path="res://space_bodies/sun.tscn" id="10_cps5n"]
 
 [node name="Game" type="Node2D"]
 
@@ -92,5 +92,6 @@ text = "Quit"
 script = ExtResource("8_tevjs")
 
 [node name="Sun" parent="." instance=ExtResource("10_cps5n")]
+visible = false
 position = Vector2(588, -101)
 texture_scale = 21.46
