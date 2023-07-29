@@ -11,7 +11,7 @@
 [ext_resource type="Theme" uid="uid://h480sux0ug1" path="res://menus/Theme.tres" id="7_1sskg"]
 [ext_resource type="Script" path="res://menus/PauseMenu.gd" id="8_gix8i"]
 [ext_resource type="Script" path="res://menus/QuitButton.gd" id="8_tevjs"]
-[ext_resource type="PackedScene" uid="uid://bpq0ajuv67wws" path="res://space_bodies/sun.tscn" id="10_cps5n"]
+[ext_resource type="PackedScene" path="res://space_bodies/sun.tscn" id="10_cps5n"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wfy84")
@@ -20,28 +20,26 @@ script = ExtResource("1_wfy84")
 follow_viewport_enabled = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.1, 0.1)
+motion_scale = Vector2(0.01, 0.01)
 
 [node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 modulate = Color(1, 1, 1, 0.164706)
 z_index = -10
 texture_filter = 2
 texture_repeat = 2
-position = Vector2(-1067, -936)
 texture = ExtResource("1_gp3hy")
-centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 2000, 2000)
+region_rect = Rect2(0, 0, 1500, 1500)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.3, 0.3)
+motion_scale = Vector2(0.1, 0.1)
 
 [node name="Stars1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 z_index = -5
 texture_repeat = 2
 texture = ExtResource("3_2emkl")
 region_enabled = true
-region_rect = Rect2(0, 0, 5000, 5000)
+region_rect = Rect2(0, 0, 3000, 3000)
 
 [node name="Ship1" parent="." instance=ExtResource("1_1h5ul")]
 position = Vector2(200, 132)
