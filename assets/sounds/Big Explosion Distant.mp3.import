@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d001fxvwkhrb8"
+path="res://.godot/imported/Big Explosion Distant.mp3-3d643d75669639680f1aaed29cd9fc0d.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Big Explosion Distant.mp3"
+dest_files=["res://.godot/imported/Big Explosion Distant.mp3-3d643d75669639680f1aaed29cd9fc0d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
