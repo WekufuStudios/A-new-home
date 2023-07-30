@@ -12,7 +12,7 @@
 [ext_resource type="Theme" uid="uid://h480sux0ug1" path="res://menus/Theme.tres" id="7_1sskg"]
 [ext_resource type="Script" path="res://menus/PauseMenu.gd" id="8_gix8i"]
 [ext_resource type="Script" path="res://menus/QuitButton.gd" id="8_tevjs"]
-[ext_resource type="PackedScene" uid="uid://bpq0ajuv67wws" path="res://space_bodies/sun.tscn" id="10_cps5n"]
+[ext_resource type="PackedScene" path="res://space_bodies/sun.tscn" id="10_cps5n"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wfy84")
@@ -49,7 +49,7 @@ motion_scale = Vector2(0.2, 0.2)
 texture_repeat = 2
 texture = ExtResource("4_dqm8h")
 region_enabled = true
-region_rect = Rect2(0, 0, 5000, 500)
+region_rect = Rect2(0, 0, 3000, 3000)
 
 [node name="Ship1" parent="." instance=ExtResource("1_1h5ul")]
 position = Vector2(200, 132)

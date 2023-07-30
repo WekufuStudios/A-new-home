@@ -1,11 +1,28 @@
 class_name Planet extends StaticBody2D
 
+var landed_on_it: bool = false
 
 @onready var sprite: AnimatedSprite2D = $Planet
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
+@onready var ui: PanelContainer = $UI/PanelContainer
+
 
 func _ready() -> void:
+	ui.hide()
+	$UI/PanelContainer/MarginContainer/HBoxContainer/PanelContainer/ShieldButton.pressed.connect(func():
+		landed_on_it = true
+		ui.hide()
+		Globals.player.life_component.hp = 100
+		Globals.player.disabled = false
+	)
+	$UI/PanelContainer/MarginContainer/HBoxContainer/PanelContainer2/FuelButton.pressed.connect(func():
+		landed_on_it = true
+		ui.hide()
+		Globals.player.fuel = 100
+		Globals.player.disabled = false
+	)
+
 	var planet_radius: float = sprite.sprite_frames.get_frame_texture("default", 0).get_width() / 2.0
 
 	var planet_col_shape: CircleShape2D = CircleShape2D.new()
@@ -32,3 +49,7 @@ func _ready() -> void:
 	shape.radius = gravity_range
 	col.shape = shape
 	gravity_area.add_child(col)
+
+
+func show_ui() -> void:
+	ui.show()

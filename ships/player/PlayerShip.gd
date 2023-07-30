@@ -15,6 +15,7 @@ var fuel: float = 100:
 				_disable_thrusters(thruster_location_name)
 		fuel_changed.emit(fuel)
 
+var planet: Planet = null
 var contacts_with_planet: int = 0
 
 @onready var canon: Canon = $Canon
@@ -28,7 +29,9 @@ func _ready() -> void:
 	Globals.player = self
 
 	land_timer.timeout.connect(func():
+		assert(planet != null)
 		disabled = true
+		planet.show_ui()
 		print("Landed!")
 	)
 
@@ -37,11 +40,13 @@ func _ready() -> void:
 	)
 
 	body_entered.connect(func(body: PhysicsBody2D):
-		if body is Planet:
+		if body is Planet and not body.landed_on_it:
+			planet = body
 			contacts_with_planet += 1
 	)
 	body_exited.connect(func(body: PhysicsBody2D):
 		if body is Planet:
+			planet = null
 			contacts_with_planet -= 1
 	)
 
