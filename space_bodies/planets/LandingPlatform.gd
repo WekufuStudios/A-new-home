@@ -14,8 +14,8 @@ func _ready() -> void:
 		set_process(true)
 	)
 
-	body_exited.connect(func(body: Node2D):
-		assert(body == Globals.player)
+	body_exited.connect(func(_body: Node2D):
+		#assert(body == Globals.player)
 		set_process(false)
 	)
 
