@@ -22,6 +22,7 @@ var enabled_thusters: Array[String] = []
 	"right_down": $Thrusters/RightDown.get_children(),
 }
 @onready var life_component: LifeComponent = $LifeComponent
+@onready var hit_sound: AudioStreamPlayer2D = $HitSound
 
 
 func _ready() -> void:
@@ -31,9 +32,13 @@ func _ready() -> void:
 		if body is RigidBody2D:
 			var velocity_lenght_diff: float = abs((linear_velocity - body.linear_velocity).length())
 			# print(velocity_lenght_diff)
+			if velocity_lenght_diff > 15:
+				hit_sound.play()
 			if velocity_lenght_diff > 30:
 				life_component.take_damage(round(velocity_lenght_diff/5.0))
 		elif body is StaticBody2D:
+			if linear_velocity.length() > 15:
+				hit_sound.play()
 			if linear_velocity.length() > 20:
 				life_component.take_damage(round(linear_velocity.length()/4.0))
 		else:

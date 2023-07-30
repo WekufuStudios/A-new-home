@@ -14,6 +14,13 @@ func _ready() -> void:
 		if body != shooter:
 			if body is Ship:
 				body.life_component.take_damage(dam)
+			var audio: AudioStreamPlayer2D = AudioStreamPlayer2D.new()
+			audio.position = global_position
+			audio.stream = load("res://assets/sounds/hit.mp3")
+			audio.volume_db = -20
+			audio.finished.connect(audio.queue_free)
+			get_tree().current_scene.add_child(audio)
+			audio.play()
 			queue_free()
 	)
 	area_entered.connect(func(area: Area2D):

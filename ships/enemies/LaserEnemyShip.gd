@@ -11,6 +11,8 @@ func _ready() -> void:
 	speed = 5000
 	rot_speed = 1000
 
+	rotation = randf_range(0, 2*PI)
+
 
 func _physics_process(delta: float) -> void:
 	super(delta)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://by1ijr7rwlm80"]
+[gd_scene load_steps=5 format=3 uid="uid://by1ijr7rwlm80"]
 
 [ext_resource type="Script" path="res://ships/Ship.gd" id="1_xmaqh"]
 [ext_resource type="Texture2D" uid="uid://c8mq4osq01k7d" path="res://assets/art/ships/ship-1.png" id="2_ofbmu"]
 [ext_resource type="Script" path="res://LifeComponent.gd" id="3_h6lcw"]
+[ext_resource type="AudioStream" uid="uid://x6saeu6j8nch" path="res://assets/sounds/hit2.mp3" id="4_gn7x7"]
 
 [node name="Ship" type="RigidBody2D"]
 script = ExtResource("1_xmaqh")
@@ -30,3 +31,7 @@ texture = ExtResource("2_ofbmu")
 script = ExtResource("3_h6lcw")
 hp = 100
 max_hp = 100
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gn7x7")
+max_polyphony = 5

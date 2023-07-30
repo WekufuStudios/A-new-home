@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cn00mn4ive2ax"]
+[gd_scene load_steps=17 format=3 uid="uid://cn00mn4ive2ax"]
 
 [ext_resource type="PackedScene" uid="uid://c7huqukkasfir" path="res://ships/player/PlayerShip.tscn" id="1_1h5ul"]
 [ext_resource type="Texture2D" uid="uid://b2g3joteis713" path="res://assets/art/Space Background.png" id="1_gp3hy"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://is5top38q38b" path="res://space_bodies/planets/Planet_Final.tscn" id="14_p2qww"]
 [ext_resource type="PackedScene" uid="uid://d85f7el0k0hk" path="res://space_bodies/planets/Planet2.tscn" id="15_tnnjy"]
 [ext_resource type="PackedScene" path="res://space_bodies/planets/Giant_gas_1.tscn" id="16_hk56g"]
+[ext_resource type="AudioStream" uid="uid://byxf2iy31bxsy" path="res://assets/music/Nocturne in B flat minor, Op. 9 no. 1.ogg" id="16_pw642"]
 [ext_resource type="PackedScene" uid="uid://wo4m7v4pnch3" path="res://space_bodies/planets/Sun_1.tscn" id="17_x82w3"]
 [ext_resource type="PackedScene" uid="uid://cba86qxysloia" path="res://ships/enemies/MissileEnemy.tscn" id="18_fnypf"]
 
@@ -103,3 +104,8 @@ position = Vector2(-4099, -487)
 
 [node name="MissileEnemy" parent="." instance=ExtResource("18_fnypf")]
 position = Vector2(848, 154)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_pw642")
+volume_db = -16.0
+autoplay = true

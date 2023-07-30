@@ -15,6 +15,8 @@ func _ready() -> void:
 	speed = 10000
 	rot_speed = 950
 
+	rotation = randf_range(0, 2*PI)
+
 	attack_timer.timeout.connect(_attack)
 
 
