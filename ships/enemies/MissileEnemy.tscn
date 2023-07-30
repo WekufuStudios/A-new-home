@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cba86qxysloia"]
+[gd_scene load_steps=6 format=3 uid="uid://cba86qxysloia"]
 
 [ext_resource type="PackedScene" uid="uid://by1ijr7rwlm80" path="res://ships/Ship.tscn" id="1_ofgyo"]
 [ext_resource type="Texture2D" uid="uid://5vev6snm0sd1" path="res://assets/art/ships/enemy-2.png" id="2_g52u1"]
 [ext_resource type="Script" path="res://ships/enemies/MissileEnemy.gd" id="2_qsmxw"]
 [ext_resource type="PackedScene" uid="uid://ceqgd5vehjdj4" path="res://ships/thrusters/SmallThruster.tscn" id="3_stnnb"]
+[ext_resource type="Script" path="res://ships/MissileCanon.gd" id="5_3vylq"]
 
 [node name="MissileEnemy" instance=ExtResource("1_ofgyo")]
+collision_layer = 4
+collision_mask = 7
 mass = 550.0
 script = ExtResource("2_qsmxw")
 
@@ -48,5 +51,17 @@ position = Vector2(10, 6)
 rotation = -0.393073
 
 [node name="LifeComponent" parent="." index="3"]
-hp = 50
-max_hp = 50
+hp = 40
+max_hp = 40
+
+[node name="MissileCanon" type="Node2D" parent="." index="4"]
+script = ExtResource("5_3vylq")
+
+[node name="Marker2D" type="Marker2D" parent="MissileCanon" index="0"]
+position = Vector2(7, -6)
+
+[node name="Marker2D2" type="Marker2D" parent="MissileCanon" index="1"]
+position = Vector2(-7, -6)
+
+[node name="AttackTimer" type="Timer" parent="." index="5"]
+wait_time = 1.5

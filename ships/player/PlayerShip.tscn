@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c7huqukkasfir"]
+[gd_scene load_steps=23 format=3 uid="uid://c7huqukkasfir"]
 
 [ext_resource type="PackedScene" uid="uid://by1ijr7rwlm80" path="res://ships/Ship.tscn" id="1_ri7gj"]
 [ext_resource type="Script" path="res://ships/player/PlayerShip.gd" id="2_lyb4r"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://je5m6hy4s7bn" path="res://assets/art/ui/warning_bar_inferior.png" id="10_p5fmk"]
 [ext_resource type="Shader" path="res://assets/shaders/Scroll.gdshader" id="11_bu5hv"]
 [ext_resource type="Texture2D" uid="uid://bmvkw6tvsrf5p" path="res://assets/art/ui/warning_icon.png" id="11_fu6uq"]
+[ext_resource type="Script" path="res://menus/PauseMenu.gd" id="15_nxqka"]
+[ext_resource type="Script" path="res://menus/RestartButton.gd" id="16_vxrml"]
+[ext_resource type="Script" path="res://menus/MenuButton.gd" id="17_cw7oj"]
+[ext_resource type="Script" path="res://menus/QuitButton.gd" id="18_c2il3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v6g63"]
 shader = ExtResource("11_bu5hv")
@@ -25,6 +29,9 @@ shader_parameter/speed = -0.2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kld4l"]
 radius = 1652.95
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4li17"]
+radius = 250.0
 
 [node name="PlayerShip" instance=ExtResource("1_ri7gj")]
 collision_layer = 2
@@ -163,6 +170,121 @@ material = SubResource("ShaderMaterial_nbr75")
 layout_mode = 2
 texture = ExtResource("10_p5fmk")
 
+[node name="PauseMenu" type="Control" parent="UI" index="2"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_sg4d3")
+script = ExtResource("15_nxqka")
+
+[node name="ColorRect" type="ColorRect" parent="UI/PauseMenu" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.329412)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseMenu" index="1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.5
+offset_top = -31.0
+offset_right = 41.5
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="UI/PauseMenu/VBoxContainer" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="UI/PauseMenu/VBoxContainer" index="1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Restart"
+script = ExtResource("16_vxrml")
+
+[node name="MenuButton" type="Button" parent="UI/PauseMenu/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Menu"
+script = ExtResource("17_cw7oj")
+
+[node name="QuitButton" type="Button" parent="UI/PauseMenu/VBoxContainer" index="3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Quit"
+script = ExtResource("18_c2il3")
+
+[node name="GameOverMenu" type="Control" parent="UI" index="3"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_sg4d3")
+
+[node name="ColorRect" type="ColorRect" parent="UI/GameOverMenu" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.329412)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/GameOverMenu" index="1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/GameOverMenu/VBoxContainer" index="0"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "GAME OVER"
+
+[node name="RestartButton" type="Button" parent="UI/GameOverMenu/VBoxContainer" index="1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Restart"
+script = ExtResource("16_vxrml")
+
+[node name="MenuButton" type="Button" parent="UI/GameOverMenu/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Menu"
+script = ExtResource("17_cw7oj")
+
+[node name="QuitButton" type="Button" parent="UI/GameOverMenu/VBoxContainer" index="3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Quit"
+script = ExtResource("18_c2il3")
+
 [node name="Arrows" type="Node2D" parent="." index="8"]
 z_index = 1
 
@@ -171,3 +293,10 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlanetDetector" index="0"]
 shape = SubResource("CircleShape2D_kld4l")
+
+[node name="EnemyDetector" type="Area2D" parent="." index="10"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector" index="0"]
+shape = SubResource("CircleShape2D_4li17")

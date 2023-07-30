@@ -22,6 +22,7 @@ var fuel: float = 100:
 @onready var ui: CanvasLayer = $UI
 @onready var arrows: Node2D = $Arrows
 @onready var planet_detector: Area2D = $PlanetDetector
+@onready var enemy_detector: Area2D = $EnemyDetector
 
 
 func _ready() -> void:
@@ -69,6 +70,13 @@ func _ready() -> void:
 					arrow.queue_free()
 					if body.type in [Planet.Type.GAS_GIANT, Planet.Type.SUN]:
 						ui.remove_danger()
+	)
+
+	enemy_detector.body_entered.connect(func(_body: Node2D):
+		camera.zoom_in()
+	)
+	enemy_detector.body_exited.connect(func(_body: Node2D):
+		camera.zoom_out()
 	)
 
 
@@ -129,3 +137,13 @@ func set_disabled(new_value: bool) -> void:
 	if new_value != disabled and disabled == true:
 		attack_timer.stop()
 	super(new_value)
+
+
+func _on_destroy() -> void:
+	super()
+	disabled = true
+	$Sprite2D.hide()
+	$CollisionPolygon2D.queue_free()
+	$UI/PauseMenu.queue_free()
+	$UI/GameOverMenu.show()
+	$Arrows.hide()

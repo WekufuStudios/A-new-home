@@ -9,7 +9,7 @@ func shoot(dir: Vector2, speed: int) -> void:
 		var projectile: Projectile = PROJECTILE_SCENE.instantiate()
 		projectile.position = marker2d.global_position
 		get_tree().current_scene.add_child(projectile)
-		projectile.shoot(dir, speed)
+		projectile.shoot(get_parent(), dir, speed)
 	var audio: AudioStreamPlayer2D = AudioStreamPlayer2D.new()
 	audio.position = global_position
 	audio.stream = SOUNDS[randi() % SOUNDS.size()]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cn00mn4ive2ax"]
+[gd_scene load_steps=16 format=3 uid="uid://cn00mn4ive2ax"]
 
 [ext_resource type="PackedScene" uid="uid://c7huqukkasfir" path="res://ships/player/PlayerShip.tscn" id="1_1h5ul"]
 [ext_resource type="Texture2D" uid="uid://b2g3joteis713" path="res://assets/art/Space Background.png" id="1_gp3hy"]
@@ -9,9 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://4a0b24xcp03y" path="res://assets/art/Space Background (3).png" id="4_dqm8h"]
 [ext_resource type="PackedScene" uid="uid://cy3ypb8ikk6e0" path="res://space_bodies/asteroids/Asteroid3.tscn" id="5_mo1o2"]
 [ext_resource type="PackedScene" uid="uid://dr2v6ctkmcent" path="res://ships/enemies/LaserEnemyShip.tscn" id="6_ab02v"]
-[ext_resource type="Theme" uid="uid://h480sux0ug1" path="res://menus/Theme.tres" id="7_1sskg"]
-[ext_resource type="Script" path="res://menus/PauseMenu.gd" id="8_gix8i"]
-[ext_resource type="Script" path="res://menus/QuitButton.gd" id="8_tevjs"]
 [ext_resource type="PackedScene" path="res://space_bodies/sun.tscn" id="10_cps5n"]
 [ext_resource type="PackedScene" uid="uid://is5top38q38b" path="res://space_bodies/planets/Planet_Final.tscn" id="14_p2qww"]
 [ext_resource type="PackedScene" uid="uid://d85f7el0k0hk" path="res://space_bodies/planets/Planet2.tscn" id="15_tnnjy"]
@@ -90,49 +87,6 @@ position = Vector2(152, 45)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" type="Control" parent="CanvasLayer"]
-process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("7_1sskg")
-script = ExtResource("8_gix8i")
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/PauseMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.329412)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -41.5
-offset_top = -31.0
-offset_right = 41.5
-offset_bottom = 31.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ResumeButton" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer"]
-layout_mode = 2
-text = "Resume"
-
-[node name="QuitButton" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
-script = ExtResource("8_tevjs")
-
 [node name="Sun" parent="." instance=ExtResource("10_cps5n")]
 visible = false
 position = Vector2(588, -101)
@@ -148,4 +102,4 @@ position = Vector2(-1044, 1691)
 position = Vector2(-4099, -487)
 
 [node name="MissileEnemy" parent="." instance=ExtResource("18_fnypf")]
-position = Vector2(660, 92)
+position = Vector2(848, 154)

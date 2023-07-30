@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjww36fcmeoy8"]
+
+[ext_resource type="Texture2D" uid="uid://c3oc8iocloesv" path="res://assets/art/ships/rocket.png" id="1_8wgps"]
+[ext_resource type="Script" path="res://ships/Missile.gd" id="1_bjck4"]
+[ext_resource type="PackedScene" uid="uid://ceqgd5vehjdj4" path="res://ships/thrusters/SmallThruster.tscn" id="2_8u0m2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sofmu"]
+radius = 2.0
+height = 6.0
+
+[node name="Missile" type="Area2D"]
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_bjck4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8wgps")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sofmu")
+
+[node name="SmallThruster" parent="." instance=ExtResource("2_8u0m2")]
+position = Vector2(-4, 0)
+rotation = 3.14159

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcln4e721da2o"]
+[gd_scene load_steps=6 format=3 uid="uid://bcln4e721da2o"]
 
 [ext_resource type="Theme" uid="uid://h480sux0ug1" path="res://menus/Theme.tres" id="1_11685"]
+[ext_resource type="Script" path="res://menus/Menu.gd" id="2_iide5"]
 [ext_resource type="Texture2D" uid="uid://dk2xkg2r3sfrm" path="res://assets/art/nebulosa_1.png" id="2_o6rux"]
 [ext_resource type="Script" path="res://menus/StartButton.gd" id="3_5qpar"]
 [ext_resource type="Script" path="res://menus/QuitButton.gd" id="4_kyq5s"]
@@ -13,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_11685")
+script = ExtResource("2_iide5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
