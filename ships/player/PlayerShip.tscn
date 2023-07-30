@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7huqukkasfir"]
+[gd_scene load_steps=10 format=3 uid="uid://c7huqukkasfir"]
 
 [ext_resource type="PackedScene" uid="uid://by1ijr7rwlm80" path="res://ships/Ship.tscn" id="1_ri7gj"]
 [ext_resource type="Script" path="res://ships/player/PlayerShip.gd" id="2_lyb4r"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" path="res://ships/Canon.gd" id="4_v6lfh"]
 [ext_resource type="Texture2D" uid="uid://d31skqn80qeyp" path="res://assets/art/ui/shield_icon.png" id="6_fa2ct"]
 [ext_resource type="Texture2D" uid="uid://dxp6t6dsbnfpr" path="res://assets/art/ui/fuel_icon.png" id="8_f6cbr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kld4l"]
+radius = 1396.22
 
 [node name="PlayerShip" instance=ExtResource("1_ri7gj")]
 collision_layer = 2
@@ -102,3 +105,11 @@ value = 51.0
 texture_under = ExtResource("4_m64n3")
 texture_progress = ExtResource("4_m64n3")
 tint_progress = Color(0.227451, 0.101961, 0.027451, 1)
+
+[node name="Arrows" type="Node2D" parent="." index="8"]
+
+[node name="PlanetDetector" type="Area2D" parent="." index="9"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanetDetector" index="0"]
+shape = SubResource("CircleShape2D_kld4l")
