@@ -117,7 +117,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	super(delta)
 
-	# print(OS.get_static_memory_usage() / 1000 / 1000)
+	#print(OS.get_static_memory_usage() / 1000.0 / 1000.0)
 
 #	if contacts_with_planet > 0 and not disabled and land_timer.is_stopped() and linear_velocity.length() < MAX_LINEAR_VELOCITY_TO_LAND and angular_velocity < MAX_ANGULAR_VELOCITY_TO_LAND:
 #		land_timer.start()

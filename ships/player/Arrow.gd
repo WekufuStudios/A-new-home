@@ -29,7 +29,7 @@ func _process(_delta: float) -> void:
 
 	var distance_to_surface: float = vector_to_target.length() - target.planet_radius
 	if distance_to_surface < 200:
-		print(target.planet_radius)
+		#print(target.planet_radius)
 		# print(distance_to_surface)
 		if distance_to_surface > SURFACE_DISTANCE_TO_ZOOM and previous_distance_to_surface < SURFACE_DISTANCE_TO_ZOOM:
 			player.camera.zoom_out()
