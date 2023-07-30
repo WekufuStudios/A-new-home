@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjimy57b5y01b" path="res://space_bodies/planets/Planet.tscn" id="1_rw0pb"]
 [ext_resource type="Texture2D" uid="uid://dht2525vxhst2" path="res://assets/art/planets/atmosphere.png" id="2_3uu3d"]
-[ext_resource type="Texture2D" uid="uid://b6qqghygne3mg" path="res://assets/art/planets/901339451 (1).png" id="3_pix22"]
+[ext_resource type="Texture2D" uid="uid://b6qqghygne3mg" path="res://assets/art/planets/sun.png" id="3_pix22"]
 [ext_resource type="Texture2D" uid="uid://dd1pkqw5jru5x" path="res://assets/art/planets/planet_normal.png" id="5_wackw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a4kvd"]

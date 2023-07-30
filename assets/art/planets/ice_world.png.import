@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6qqghygne3mg"
-path="res://.godot/imported/901339451 (1).png-97ebc6576adf3f41806430c128a7f141.ctex"
+uid="uid://b4k3wd4nohoji"
+path="res://.godot/imported/ice_world.png-668b3c37be8a9d72da47809d7fb5bbad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/planets/901339451 (1).png"
-dest_files=["res://.godot/imported/901339451 (1).png-97ebc6576adf3f41806430c128a7f141.ctex"]
+source_file="res://assets/art/planets/ice_world.png"
+dest_files=["res://.godot/imported/ice_world.png-668b3c37be8a9d72da47809d7fb5bbad.ctex"]
 
 [params]
 
