@@ -390,6 +390,7 @@ texture = ExtResource("2_272pj")
 
 [node name="LandingPlatform" parent="." index="2" instance=ExtResource("3_l16gn")]
 position = Vector2(-1, -98)
+first_planet = true
 
 [node name="Planet" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_i13nc")
