@@ -1,7 +1,8 @@
-[gd_scene load_steps=55 format=3 uid="uid://bgj2kknwp0hjl"]
+[gd_scene load_steps=56 format=3 uid="uid://d85f7el0k0hk"]
 
 [ext_resource type="PackedScene" uid="uid://bjimy57b5y01b" path="res://space_bodies/planets/Planet.tscn" id="1_8slbi"]
 [ext_resource type="Texture2D" uid="uid://vt45vihiuirp" path="res://assets/art/planets/planet_2.png" id="2_1o2bd"]
+[ext_resource type="PackedScene" uid="uid://c67sgbotkxhvu" path="res://space_bodies/planets/LandingPlatform.tscn" id="4_fdmak"]
 [ext_resource type="Texture2D" uid="uid://dd1pkqw5jru5x" path="res://assets/art/planets/planet_normal.png" id="4_mf75s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vk72o"]
@@ -376,3 +377,7 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_i13nc")
 autoplay = "default"
 frame_progress = 0.853285
+
+[node name="LandingPlatform" parent="." index="3" instance=ExtResource("4_fdmak")]
+position = Vector2(75, 0)
+rotation = 1.5708

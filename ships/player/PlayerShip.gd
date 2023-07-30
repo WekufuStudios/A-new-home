@@ -15,11 +15,7 @@ var fuel: float = 100:
 				_disable_thrusters(thruster_location_name)
 		fuel_changed.emit(fuel)
 
-var planet: Planet = null
-var contacts_with_planet: int = 0
-
 @onready var canon: Canon = $Canon
-@onready var land_timer: Timer = $LandTimer
 @onready var attack_timer: Timer = $AttackTimer
 
 
@@ -28,27 +24,20 @@ func _ready() -> void:
 
 	Globals.player = self
 
-	land_timer.timeout.connect(func():
-		assert(planet != null)
-		disabled = true
-		planet.show_ui()
-		print("Landed!")
-	)
-
 	attack_timer.timeout.connect(func():
 		canon.shoot(Vector2.UP.rotated(rotation), 100)
 	)
 
-	body_entered.connect(func(body: PhysicsBody2D):
-		if body is Planet and not body.landed_on_it:
-			planet = body
-			contacts_with_planet += 1
-	)
-	body_exited.connect(func(body: PhysicsBody2D):
-		if body is Planet:
-			planet = null
-			contacts_with_planet -= 1
-	)
+#	body_entered.connect(func(body: PhysicsBody2D):
+#		if body is Planet and not body.landed_on_it:
+#			planet = body
+#			contacts_with_planet += 1
+#	)
+#	body_exited.connect(func(body: PhysicsBody2D):
+#		if body is Planet:
+#			planet = null
+#			contacts_with_planet -= 1
+#	)
 
 	for thruster_location in thrusters.values():
 		for thruster in thruster_location:
@@ -102,10 +91,10 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	super(delta)
 
-	if contacts_with_planet > 0 and not disabled and land_timer.is_stopped() and linear_velocity.length() < MAX_LINEAR_VELOCITY_TO_LAND and angular_velocity < MAX_ANGULAR_VELOCITY_TO_LAND:
-		land_timer.start()
-	elif (contacts_with_planet == 0 or mov_direction != Vector2.ZERO or turn_dir != 0) and not land_timer.is_stopped():
-		land_timer.stop()
+#	if contacts_with_planet > 0 and not disabled and land_timer.is_stopped() and linear_velocity.length() < MAX_LINEAR_VELOCITY_TO_LAND and angular_velocity < MAX_ANGULAR_VELOCITY_TO_LAND:
+#		land_timer.start()
+#	elif (contacts_with_planet == 0 or mov_direction != Vector2.ZERO or turn_dir != 0) and not land_timer.is_stopped():
+#		land_timer.stop()
 
 
 func set_disabled(new_value: bool) -> void:

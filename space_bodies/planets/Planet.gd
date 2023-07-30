@@ -45,7 +45,7 @@ func _ready() -> void:
 	gravity_area.gravity_point = true
 	gravity_area.gravity_point_unit_distance = planet_radius
 	gravity_area.gravity_point_center = Vector2.ZERO
-	gravity_area.gravity = planet_radius / 10.0
+	gravity_area.gravity = planet_radius / 5.0
 	gravity_area.linear_damp_space_override = Area2D.SPACE_OVERRIDE_COMBINE
 	gravity_area.linear_damp = 0.2
 	gravity_area.angular_damp_space_override = Area2D.SPACE_OVERRIDE_COMBINE

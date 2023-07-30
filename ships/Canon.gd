@@ -11,6 +11,7 @@ func shoot(dir: Vector2, speed: int) -> void:
 		get_tree().current_scene.add_child(projectile)
 		projectile.shoot(dir, speed)
 	var audio: AudioStreamPlayer2D = AudioStreamPlayer2D.new()
+	audio.position = global_position
 	audio.stream = SOUNDS[randi() % SOUNDS.size()]
 	audio.volume_db = -12
 	audio.finished.connect(audio.queue_free)

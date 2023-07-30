@@ -1,9 +1,10 @@
-[gd_scene load_steps=56 format=3 uid="uid://duspbydliagc4"]
+[gd_scene load_steps=57 format=3 uid="uid://is5top38q38b"]
 
 [ext_resource type="PackedScene" uid="uid://bjimy57b5y01b" path="res://space_bodies/planets/Planet.tscn" id="1_twdxw"]
 [ext_resource type="Texture2D" uid="uid://dht2525vxhst2" path="res://assets/art/planets/atmosphere.png" id="2_ime0d"]
 [ext_resource type="Texture2D" uid="uid://b40kk2ewt1o6g" path="res://assets/art/planets/planet_final.png" id="3_n1p6d"]
 [ext_resource type="Texture2D" uid="uid://dd1pkqw5jru5x" path="res://assets/art/planets/planet_normal.png" id="4_cnfcc"]
+[ext_resource type="PackedScene" uid="uid://c67sgbotkxhvu" path="res://space_bodies/planets/LandingPlatform.tscn" id="5_s44fq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5e2tv"]
 atlas = ExtResource("3_n1p6d")
@@ -390,3 +391,7 @@ texture = ExtResource("2_ime0d")
 sprite_frames = SubResource("SpriteFrames_i13nc")
 autoplay = "default"
 frame_progress = 0.141023
+
+[node name="LandingPlatform" parent="." index="5" instance=ExtResource("5_s44fq")]
+position = Vector2(-85, 89)
+rotation = -2.35619
