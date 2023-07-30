@@ -38,7 +38,7 @@ func _ready() -> void:
 	planet_col_shape.radius = planet_radius if type == Type.LANDABLE else 32.0
 	collision_shape.shape = planet_col_shape
 
-	var gravity_range: float = planet_radius * 4
+	var gravity_range: float = planet_radius * 3
 
 	var gravity_area: Area2D = Area2D.new()
 	gravity_area.name = "GravityArea"
@@ -49,7 +49,7 @@ func _ready() -> void:
 	gravity_area.gravity_point = true
 	gravity_area.gravity_point_unit_distance = planet_radius
 	gravity_area.gravity_point_center = Vector2.ZERO
-	gravity_area.gravity = planet_radius / 5.0
+	gravity_area.gravity = planet_radius / 8.0
 	gravity_area.linear_damp_space_override = Area2D.SPACE_OVERRIDE_COMBINE
 	gravity_area.linear_damp = 0.2
 	gravity_area.angular_damp_space_override = Area2D.SPACE_OVERRIDE_COMBINE
