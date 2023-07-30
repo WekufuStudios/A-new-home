@@ -25,28 +25,28 @@ script = ExtResource("1_wfy84")
 [node name="Planets" type="Node2D" parent="."]
 
 [node name="Planet_Final" parent="Planets" instance=ExtResource("14_p2qww")]
-position = Vector2(28327, -13323)
+position = Vector2(16003, -9018)
 
 [node name="Planet1" parent="Planets" instance=ExtResource("3_jxt6p")]
 position = Vector2(422, 182)
 
 [node name="Planet2" parent="Planets" instance=ExtResource("15_tnnjy")]
-position = Vector2(6795, -494)
+position = Vector2(7010, 690)
 
 [node name="Giant_gas_1" parent="Planets" instance=ExtResource("16_hk56g")]
-position = Vector2(13805, -9173)
+position = Vector2(1952, -4575)
 
 [node name="Sun_1" parent="Planets" instance=ExtResource("17_x82w3")]
-position = Vector2(3661, -7064)
+position = Vector2(7863, -4262)
 
 [node name="Planet3" parent="Planets" instance=ExtResource("10_wgk8x")]
-position = Vector2(21990, -8265)
+position = Vector2(13325, -4498)
 
 [node name="Planet4" parent="Planets" instance=ExtResource("11_7nbr2")]
-position = Vector2(4555, -14136)
+position = Vector2(4824, -9346)
 
 [node name="Giant_gas_2" parent="Planets" instance=ExtResource("12_d1b2r")]
-position = Vector2(16216, 1393)
+position = Vector2(9596, -10447)
 
 [node name="Ship1" parent="." instance=ExtResource("1_1h5ul")]
 position = Vector2(200, 132)
@@ -64,7 +64,7 @@ texture_filter = 2
 texture_repeat = 2
 texture = ExtResource("1_gp3hy")
 region_enabled = true
-region_rect = Rect2(0, 0, 10000, 10000)
+region_rect = Rect2(0, 0, 100000, 100000)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.1)
@@ -74,7 +74,7 @@ z_index = -5
 texture_repeat = 2
 texture = ExtResource("3_2emkl")
 region_enabled = true
-region_rect = Rect2(0, 0, 20000, 20000)
+region_rect = Rect2(0, 0, 100000, 100000)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 0.2)
@@ -83,7 +83,7 @@ motion_scale = Vector2(0.2, 0.2)
 texture_repeat = 2
 texture = ExtResource("4_dqm8h")
 region_enabled = true
-region_rect = Rect2(0, 0, 20000, 20000)
+region_rect = Rect2(0, 0, 100000, 100000)
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -96,22 +96,302 @@ position = Vector2(848, 154)
 [node name="Asteroids" type="Node2D" parent="."]
 
 [node name="Asteroid1" parent="Asteroids" instance=ExtResource("4_4oy65")]
-position = Vector2(93, 162)
+position = Vector2(12242, -5861)
 inertia = 0.0
 script = null
 
 [node name="Asteroid3" parent="Asteroids" instance=ExtResource("5_mo1o2")]
-position = Vector2(300, 78)
+position = Vector2(12449, -5945)
 inertia = 0.0
 script = null
 
 [node name="Asteroid2" parent="Asteroids" instance=ExtResource("4_4oy65")]
-position = Vector2(109, 90)
+position = Vector2(12258, -5933)
 inertia = 0.0
 script = null
 
 [node name="Asteroid4" parent="Asteroids" instance=ExtResource("5_mo1o2")]
-position = Vector2(193, 278)
+position = Vector2(12342, -5745)
+inertia = 0.0
+script = null
+
+[node name="Asteroid5" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(12154, -4010)
+inertia = 0.0
+script = null
+
+[node name="Asteroid6" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(12459, -4076)
+inertia = 0.0
+script = null
+
+[node name="Asteroid7" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(12170, -4082)
+inertia = 0.0
+script = null
+
+[node name="Asteroid8" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(12254, -3894)
+inertia = 0.0
+script = null
+
+[node name="Asteroid9" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(15099, -5862)
+inertia = 0.0
+script = null
+
+[node name="Asteroid10" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(15306, -5946)
+inertia = 0.0
+script = null
+
+[node name="Asteroid11" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(15115, -5934)
+inertia = 0.0
+script = null
+
+[node name="Asteroid12" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(15199, -5746)
+inertia = 0.0
+script = null
+
+[node name="Asteroid13" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(7986, -11251)
+inertia = 0.0
+script = null
+
+[node name="Asteroid14" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(8193, -11335)
+inertia = 0.0
+script = null
+
+[node name="Asteroid15" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(8002, -11323)
+inertia = 0.0
+script = null
+
+[node name="Asteroid16" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(8086, -11135)
+inertia = 0.0
+script = null
+
+[node name="Asteroid17" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(7898, -9400)
+inertia = 0.0
+script = null
+
+[node name="Asteroid18" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(8203, -9466)
+inertia = 0.0
+script = null
+
+[node name="Asteroid19" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(7914, -9472)
+inertia = 0.0
+script = null
+
+[node name="Asteroid20" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(7998, -9284)
+inertia = 0.0
+script = null
+
+[node name="Asteroid21" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(10843, -11252)
+inertia = 0.0
+script = null
+
+[node name="Asteroid22" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(11050, -11336)
+inertia = 0.0
+script = null
+
+[node name="Asteroid23" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(10859, -11324)
+inertia = 0.0
+script = null
+
+[node name="Asteroid49" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(431, -5490)
+inertia = 0.0
+script = null
+
+[node name="Asteroid50" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(638, -5574)
+inertia = 0.0
+script = null
+
+[node name="Asteroid51" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(447, -5562)
+inertia = 0.0
+script = null
+
+[node name="Asteroid52" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(531, -5374)
+inertia = 0.0
+script = null
+
+[node name="Asteroid53" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(343, -3639)
+inertia = 0.0
+script = null
+
+[node name="Asteroid54" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(648, -3705)
+inertia = 0.0
+script = null
+
+[node name="Asteroid55" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(359, -3711)
+inertia = 0.0
+script = null
+
+[node name="Asteroid56" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(443, -3523)
+inertia = 0.0
+script = null
+
+[node name="Asteroid57" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(3288, -5491)
+inertia = 0.0
+script = null
+
+[node name="Asteroid58" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(3495, -5575)
+inertia = 0.0
+script = null
+
+[node name="Asteroid59" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(3304, -5563)
+inertia = 0.0
+script = null
+
+[node name="Asteroid60" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(3388, -5375)
+inertia = 0.0
+script = null
+
+[node name="Asteroid37" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(5597, -27)
+inertia = 0.0
+script = null
+
+[node name="Asteroid38" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(5804, -111)
+inertia = 0.0
+script = null
+
+[node name="Asteroid39" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(5613, -99)
+inertia = 0.0
+script = null
+
+[node name="Asteroid40" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(5697, 89)
+inertia = 0.0
+script = null
+
+[node name="Asteroid41" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(5509, 1824)
+inertia = 0.0
+script = null
+
+[node name="Asteroid42" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(5814, 1758)
+inertia = 0.0
+script = null
+
+[node name="Asteroid43" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(5525, 1752)
+inertia = 0.0
+script = null
+
+[node name="Asteroid44" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(5609, 1940)
+inertia = 0.0
+script = null
+
+[node name="Asteroid45" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(8454, -28)
+inertia = 0.0
+script = null
+
+[node name="Asteroid46" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(8661, -112)
+inertia = 0.0
+script = null
+
+[node name="Asteroid47" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(8470, -100)
+inertia = 0.0
+script = null
+
+[node name="Asteroid48" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(8554, 88)
+inertia = 0.0
+script = null
+
+[node name="Asteroid25" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(3116, -10046)
+inertia = 0.0
+script = null
+
+[node name="Asteroid26" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(3323, -10130)
+inertia = 0.0
+script = null
+
+[node name="Asteroid27" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(3132, -10118)
+inertia = 0.0
+script = null
+
+[node name="Asteroid28" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(3216, -9930)
+inertia = 0.0
+script = null
+
+[node name="Asteroid29" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(3028, -8195)
+inertia = 0.0
+script = null
+
+[node name="Asteroid30" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(3333, -8261)
+inertia = 0.0
+script = null
+
+[node name="Asteroid31" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(3044, -8267)
+inertia = 0.0
+script = null
+
+[node name="Asteroid32" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(3128, -8079)
+inertia = 0.0
+script = null
+
+[node name="Asteroid33" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(5973, -10047)
+inertia = 0.0
+script = null
+
+[node name="Asteroid34" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(6180, -10131)
+inertia = 0.0
+script = null
+
+[node name="Asteroid35" parent="Asteroids" instance=ExtResource("4_4oy65")]
+position = Vector2(5989, -10119)
+inertia = 0.0
+script = null
+
+[node name="Asteroid36" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(6073, -9931)
+inertia = 0.0
+script = null
+
+[node name="Asteroid24" parent="Asteroids" instance=ExtResource("5_mo1o2")]
+position = Vector2(10943, -11136)
 inertia = 0.0
 script = null
 
