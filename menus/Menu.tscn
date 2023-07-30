@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bcln4e721da2o"]
+[gd_scene load_steps=65 format=3 uid="uid://bcln4e721da2o"]
 
 [ext_resource type="Theme" uid="uid://h480sux0ug1" path="res://menus/Theme.tres" id="1_11685"]
 [ext_resource type="Script" path="res://menus/Menu.gd" id="2_iide5"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b40kk2ewt1o6g" path="res://assets/art/planets/planet_final.png" id="6_2gr18"]
 [ext_resource type="Texture2D" uid="uid://ba4i7qa1usqqy" path="res://assets/art/ui/no_music_button_normal.png" id="7_p2wpq"]
 [ext_resource type="Texture2D" uid="uid://cdwok0wu1o31c" path="res://assets/art/ui/no_music_button_pressed.png" id="8_31oex"]
+[ext_resource type="Texture2D" uid="uid://da56aafcmlxye" path="res://assets/art/ui/no_music_button_hover.png" id="8_k0h12"]
 [ext_resource type="Script" path="res://menus/DisableMusicButton.gd" id="9_82b5i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxoa3"]
@@ -371,7 +372,8 @@ animations = [{
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f8ewx"]
 texture = ExtResource("7_p2wpq")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wgogo"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2qex6"]
+texture = ExtResource("8_k0h12")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_adsps"]
 texture = ExtResource("8_31oex")
@@ -423,7 +425,7 @@ position = Vector2(89, 131)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_4qatb")
 autoplay = "default"
-frame_progress = 0.995546
+frame_progress = 0.943718
 
 [node name="DisableMusicButton" type="Button" parent="."]
 layout_mode = 0
@@ -432,6 +434,6 @@ offset_top = 7.0
 offset_right = 344.0
 offset_bottom = 27.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_f8ewx")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_wgogo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2qex6")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_adsps")
 script = ExtResource("9_82b5i")
