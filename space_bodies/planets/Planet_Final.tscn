@@ -1,7 +1,8 @@
-[gd_scene load_steps=57 format=3 uid="uid://is5top38q38b"]
+[gd_scene load_steps=58 format=3 uid="uid://is5top38q38b"]
 
 [ext_resource type="PackedScene" uid="uid://bjimy57b5y01b" path="res://space_bodies/planets/Planet.tscn" id="1_twdxw"]
 [ext_resource type="Texture2D" uid="uid://dht2525vxhst2" path="res://assets/art/planets/atmosphere.png" id="2_ime0d"]
+[ext_resource type="Script" path="res://space_bodies/planets/PlanetFinal.gd" id="2_j35vw"]
 [ext_resource type="Texture2D" uid="uid://b40kk2ewt1o6g" path="res://assets/art/planets/planet_final.png" id="3_n1p6d"]
 [ext_resource type="Texture2D" uid="uid://dd1pkqw5jru5x" path="res://assets/art/planets/planet_normal.png" id="4_cnfcc"]
 [ext_resource type="PackedScene" uid="uid://c67sgbotkxhvu" path="res://space_bodies/planets/LandingPlatform.tscn" id="5_s44fq"]
@@ -373,6 +374,7 @@ animations = [{
 }]
 
 [node name="Planet_Final" instance=ExtResource("1_twdxw")]
+script = ExtResource("2_j35vw")
 
 [node name="Atmosphere" type="Sprite2D" parent="." index="0"]
 modulate = Color(0.470588, 0.631373, 0.956863, 0.337255)
