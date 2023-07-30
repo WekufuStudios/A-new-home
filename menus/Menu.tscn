@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://bcln4e721da2o"]
+[gd_scene load_steps=59 format=3 uid="uid://bcln4e721da2o"]
 
 [ext_resource type="Theme" uid="uid://h480sux0ug1" path="res://menus/Theme.tres" id="1_11685"]
 [ext_resource type="Script" path="res://menus/Menu.gd" id="2_iide5"]
@@ -365,6 +365,8 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_adsps"]
+
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -412,4 +414,12 @@ position = Vector2(89, 131)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_4qatb")
 autoplay = "default"
-frame_progress = 0.285717
+frame_progress = 0.755991
+
+[node name="DisableMusicButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 7.0
+offset_right = 344.0
+offset_bottom = 27.0
+theme_override_styles/pressed = SubResource("StyleBoxTexture_adsps")

@@ -10,6 +10,7 @@ var fuel: float = 100:
 	set(new_fuel):
 		fuel = clamp(new_fuel, 0, 100)
 		if fuel == 0:
+			out_of_fuel_timer.start()
 			mov_direction = Vector2.ZERO
 			turn_dir = 0
 			for thruster_location_name in thrusters:
@@ -19,6 +20,7 @@ var fuel: float = 100:
 @onready var camera: Camera2D = $Camera
 @onready var canon: Canon = $Canon
 @onready var attack_timer: Timer = $AttackTimer
+@onready var out_of_fuel_timer: Timer = $OutOfFuelTimer
 @onready var ui: CanvasLayer = $UI
 @onready var arrows: Node2D = $Arrows
 @onready var planet_detector: Area2D = $PlanetDetector
@@ -77,6 +79,13 @@ func _ready() -> void:
 	)
 	enemy_detector.body_exited.connect(func(_body: Node2D):
 		camera.zoom_out()
+	)
+
+	out_of_fuel_timer.timeout.connect(func():
+		disabled = true
+		$UI/PauseMenu.queue_free()
+		$UI/GameOverMenu.show()
+		$Arrows.hide()
 	)
 
 
@@ -141,6 +150,8 @@ func set_disabled(new_value: bool) -> void:
 
 func _on_destroy() -> void:
 	super()
+	if fuel == 0 and out_of_fuel_timer.is_stopped():
+		return
 	disabled = true
 	$Sprite2D.hide()
 	$CollisionPolygon2D.queue_free()

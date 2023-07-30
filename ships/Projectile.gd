@@ -33,7 +33,7 @@ func _ready() -> void:
 			queue_free()
 	)
 	area_entered.connect(func(area: Area2D):
-		if area is Projectile:
+		if area is Projectile and not (self is Missile and area is Missile):
 			queue_free()
 	)
 

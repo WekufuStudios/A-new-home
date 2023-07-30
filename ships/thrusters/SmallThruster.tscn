@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ceqgd5vehjdj4"]
+[gd_scene load_steps=12 format=3 uid="uid://ceqgd5vehjdj4"]
 
 [ext_resource type="Texture2D" uid="uid://cseytu1dxikvo" path="res://assets/art/effects/fire-smoke-anim.png" id="1_odbom"]
 [ext_resource type="Script" path="res://ships/thrusters/Thruster.gd" id="2_tom1w"]
+[ext_resource type="AudioStream" uid="uid://du1hfkl7v25cw" path="res://assets/sounds/shoot_held_03.wav" id="3_dl8m3"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r1wqy"]
 particles_animation = true
@@ -58,3 +59,7 @@ amount = 24
 process_material = SubResource("ParticleProcessMaterial_q1ney")
 texture = ExtResource("1_odbom")
 script = ExtResource("2_tom1w")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dl8m3")
+volume_db = -28.0
