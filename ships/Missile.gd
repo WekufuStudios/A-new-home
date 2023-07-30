@@ -6,6 +6,7 @@ var target: Node2D = null
 func _ready() -> void:
 	dam = 10
 	life_time = 7
+	explosion_scale = 0.5
 	super()
 
 
