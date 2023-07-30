@@ -2,29 +2,32 @@ class_name LandingPlatform extends Area2D
 
 var player: PlayerShip = null
 
+@export var first_planet: bool = false
+
 @onready var land_timer: Timer = $LandTimer
 
 
 func _ready() -> void:
 	set_process(false)
 
-	body_entered.connect(func(body: Node2D):
-		assert(body == Globals.player)
-		player = body
-		set_process(true)
-	)
+	if not first_planet:
+		body_entered.connect(func(body: Node2D):
+			assert(body == Globals.player)
+			player = body
+			set_process(true)
+		)
 
-	body_exited.connect(func(_body: Node2D):
-		#assert(body == Globals.player)
-		set_process(false)
-	)
+		body_exited.connect(func(_body: Node2D):
+			#assert(body == Globals.player)
+			set_process(false)
+		)
 
-	land_timer.timeout.connect(func():
-		$CollisionShape2D.queue_free()
-		set_process(false)
-		player.disabled = true
-		get_parent().show_ui()
-	)
+		land_timer.timeout.connect(func():
+			$CollisionShape2D.queue_free()
+			set_process(false)
+			player.disabled = true
+			get_parent().show_ui()
+		)
 
 
 func _process(_delta: float) -> void:
