@@ -53,6 +53,9 @@ texture = ExtResource("4_dqm8h")
 region_enabled = true
 region_rect = Rect2(0, 0, 3000, 3000)
 
+[node name="Planet_Final" parent="." instance=ExtResource("14_p2qww")]
+position = Vector2(1741, 1353)
+
 [node name="Ship1" parent="." instance=ExtResource("1_1h5ul")]
 position = Vector2(200, 132)
 
@@ -131,9 +134,6 @@ script = ExtResource("8_tevjs")
 visible = false
 position = Vector2(588, -101)
 texture_scale = 21.46
-
-[node name="Planet_Final" parent="." instance=ExtResource("14_p2qww")]
-position = Vector2(1741, 1353)
 
 [node name="Planet2" parent="." instance=ExtResource("15_tnnjy")]
 position = Vector2(1834, 309)

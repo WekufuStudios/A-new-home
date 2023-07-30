@@ -3,6 +3,7 @@ class_name PlayerShip extends Ship
 const MAX_LINEAR_VELOCITY_TO_LAND: int = 1
 const MAX_ANGULAR_VELOCITY_TO_LAND: float = 1.5
 
+const ARROW_SCENE: PackedScene = preload("res://ships/player/Arrow.tscn")
 
 signal fuel_changed(new_fuel: float)
 var fuel: float = 100:
@@ -17,6 +18,8 @@ var fuel: float = 100:
 
 @onready var canon: Canon = $Canon
 @onready var attack_timer: Timer = $AttackTimer
+@onready var arrows: Node2D = $Arrows
+@onready var planet_detector: Area2D = $PlanetDetector
 
 
 func _ready() -> void:
@@ -44,6 +47,23 @@ func _ready() -> void:
 			thruster.fuel_consumed.connect(func(amount: float):
 				fuel -= amount
 			)
+
+	var final_planet_arrow: Arrow = ARROW_SCENE.instantiate()
+	arrows.add_child(final_planet_arrow)
+	final_planet_arrow.target = Globals.planet_final
+
+	planet_detector.body_entered.connect(func(body: Node2D):
+		if body is Planet and not body is PlanetFinal:
+			var arrow: Arrow = ARROW_SCENE.instantiate()
+			arrows.add_child(arrow)
+			arrow.target = body
+	)
+	planet_detector.body_exited.connect(func(body: Node2D):
+		if body is Planet and not body is PlanetFinal:
+			for arrow in arrows.get_children():
+				if arrow.target == body:
+					arrow.queue_free()
+	)
 
 
 func _exit_tree() -> void:
