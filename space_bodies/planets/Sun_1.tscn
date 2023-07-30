@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bqe0htd6flia"]
+[gd_scene load_steps=56 format=3 uid="uid://wo4m7v4pnch3"]
 
 [ext_resource type="PackedScene" uid="uid://bjimy57b5y01b" path="res://space_bodies/planets/Planet.tscn" id="1_rw0pb"]
 [ext_resource type="Texture2D" uid="uid://dht2525vxhst2" path="res://assets/art/planets/atmosphere.png" id="2_3uu3d"]

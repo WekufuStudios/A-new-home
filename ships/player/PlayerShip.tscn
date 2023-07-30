@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7huqukkasfir"]
+[gd_scene load_steps=14 format=3 uid="uid://c7huqukkasfir"]
 
 [ext_resource type="PackedScene" uid="uid://by1ijr7rwlm80" path="res://ships/Ship.tscn" id="1_ri7gj"]
 [ext_resource type="Script" path="res://ships/player/PlayerShip.gd" id="2_lyb4r"]
@@ -8,9 +8,13 @@
 [ext_resource type="Script" path="res://ships/Canon.gd" id="4_v6lfh"]
 [ext_resource type="Texture2D" uid="uid://d31skqn80qeyp" path="res://assets/art/ui/shield_icon.png" id="6_fa2ct"]
 [ext_resource type="Texture2D" uid="uid://dxp6t6dsbnfpr" path="res://assets/art/ui/fuel_icon.png" id="8_f6cbr"]
+[ext_resource type="Texture2D" uid="uid://c2y5qh3mlsh16" path="res://assets/art/ui/warning_bar_superior.png" id="9_nd6hy"]
+[ext_resource type="Theme" uid="uid://h480sux0ug1" path="res://menus/Theme.tres" id="9_sg4d3"]
+[ext_resource type="Texture2D" uid="uid://je5m6hy4s7bn" path="res://assets/art/ui/warning_bar_inferior.png" id="10_p5fmk"]
+[ext_resource type="Texture2D" uid="uid://bmvkw6tvsrf5p" path="res://assets/art/ui/warning_icon.png" id="11_fu6uq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kld4l"]
-radius = 1396.22
+radius = 1652.95
 
 [node name="PlayerShip" instance=ExtResource("1_ri7gj")]
 collision_layer = 2
@@ -105,6 +109,37 @@ value = 51.0
 texture_under = ExtResource("4_m64n3")
 texture_progress = ExtResource("4_m64n3")
 tint_progress = Color(0.227451, 0.101961, 0.027451, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" index="1"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("9_sg4d3")
+
+[node name="TextureRect" type="TextureRect" parent="UI/VBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("9_nd6hy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/VBoxContainer" index="1"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/VBoxContainer/HBoxContainer" index="0"]
+layout_mode = 2
+texture = ExtResource("11_fu6uq")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 2
+text = "WARNING"
+
+[node name="TextureRect2" type="TextureRect" parent="UI/VBoxContainer/HBoxContainer" index="2"]
+layout_mode = 2
+texture = ExtResource("11_fu6uq")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="UI/VBoxContainer" index="2"]
+layout_mode = 2
+texture = ExtResource("10_p5fmk")
 
 [node name="Arrows" type="Node2D" parent="." index="8"]
 

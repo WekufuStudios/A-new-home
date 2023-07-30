@@ -33,7 +33,7 @@ func _ready() -> void:
 	var planet_radius: float = sprite.sprite_frames.get_frame_texture("default", 0).get_width() / 2.0
 
 	var planet_col_shape: CircleShape2D = CircleShape2D.new()
-	planet_col_shape.radius = planet_radius if type == Type.LANDABLE else 16
+	planet_col_shape.radius = planet_radius if type == Type.LANDABLE else 32
 	collision_shape.shape = planet_col_shape
 
 	var gravity_range: float = planet_radius * 4
