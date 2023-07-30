@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c67sgbotkxhvu"]
+
+[ext_resource type="Texture2D" uid="uid://buwgt8lvhuepx" path="res://assets/art/landing_platform.png" id="1_tiajo"]
+
+[node name="LandingPlatform" type="Area2D"]
+
+[node name="LandingPlatform" type="Sprite2D" parent="."]
+position = Vector2(1, -116)
+texture = ExtResource("1_tiajo")

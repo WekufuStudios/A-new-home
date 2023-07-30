@@ -2,6 +2,13 @@ class_name Planet extends StaticBody2D
 
 var landed_on_it: bool = false
 
+enum Type {
+	LANDABLE,
+	GAS_GIANT,
+	SUN,
+}
+@export var type: Type = Type.LANDABLE
+
 @onready var sprite: AnimatedSprite2D = $Planet
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
@@ -25,9 +32,10 @@ func _ready() -> void:
 
 	var planet_radius: float = sprite.sprite_frames.get_frame_texture("default", 0).get_width() / 2.0
 
-	var planet_col_shape: CircleShape2D = CircleShape2D.new()
-	planet_col_shape.radius = planet_radius
-	collision_shape.shape = planet_col_shape
+	if type == Type.LANDABLE:
+		var planet_col_shape: CircleShape2D = CircleShape2D.new()
+		planet_col_shape.radius = planet_radius
+		collision_shape.shape = planet_col_shape
 
 	var gravity_range: float = planet_radius * 4
 
