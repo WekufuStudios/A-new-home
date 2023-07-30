@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://cba86qxysloia"]
+
+[ext_resource type="PackedScene" uid="uid://by1ijr7rwlm80" path="res://ships/Ship.tscn" id="1_ofgyo"]
+[ext_resource type="Texture2D" uid="uid://5vev6snm0sd1" path="res://assets/art/ships/enemy-2.png" id="2_g52u1"]
+[ext_resource type="Script" path="res://ships/enemies/MissileEnemy.gd" id="2_qsmxw"]
+[ext_resource type="PackedScene" uid="uid://ceqgd5vehjdj4" path="res://ships/thrusters/SmallThruster.tscn" id="3_stnnb"]
+
+[node name="MissileEnemy" instance=ExtResource("1_ofgyo")]
+mass = 550.0
+script = ExtResource("2_qsmxw")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_g52u1")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-2, -7, 2, -7, 2, -6, 3, -6, 3, -5, 4, -5, 4, -3, 3, -3, 3, 0, 4, 0, 4, -1, 5, -1, 5, -3, 9, -3, 9, -1, 10, -1, 10, 5, 9, 5, 9, 8, 8, 8, 8, 9, 6, 9, 6, 8, 5, 8, 5, 5, 3, 5, 3, 7, 2, 7, 2, 8, -2, 8, -2, 7, -3, 7, -3, 5, -5, 5, -5, 8, -6, 8, -6, 9, -8, 9, -8, 8, -9, 8, -9, 5, -10, 5, -10, -1, -9, -1, -9, -3, -5, -3, -5, -1, -4, -1, -4, 0, -3, 0, -3, -3, -4, -3, -4, -5, -3, -5, -3, -6, -2, -6)
+
+[node name="SmallThruster" parent="Thrusters/Up" index="0" instance=ExtResource("3_stnnb")]
+position = Vector2(7, -3)
+rotation = -1.5708
+
+[node name="SmallThruster2" parent="Thrusters/Up" index="1" instance=ExtResource("3_stnnb")]
+position = Vector2(-7, -3)
+rotation = -1.5708
+
+[node name="SmallThruster" parent="Thrusters/Down" index="0" instance=ExtResource("3_stnnb")]
+position = Vector2(7, 9)
+rotation = 1.5708
+
+[node name="SmallThruster2" parent="Thrusters/Down" index="1" instance=ExtResource("3_stnnb")]
+position = Vector2(-7, 9)
+rotation = 1.5708
+
+[node name="SmallThruster" parent="Thrusters/LeftUp" index="0" instance=ExtResource("3_stnnb")]
+position = Vector2(-9, -2)
+rotation = 2.85005
+
+[node name="SmallThruster" parent="Thrusters/LeftDown" index="0" instance=ExtResource("3_stnnb")]
+position = Vector2(-10, 6)
+rotation = -2.79573
+
+[node name="SmallThruster" parent="Thrusters/RightUp" index="0" instance=ExtResource("3_stnnb")]
+position = Vector2(9, -2)
+rotation = 0.486382
+
+[node name="SmallThruster" parent="Thrusters/RightDown" index="0" instance=ExtResource("3_stnnb")]
+position = Vector2(10, 6)
+rotation = -0.393073
+
+[node name="LifeComponent" parent="." index="3"]
+hp = 50
+max_hp = 50

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://buwgt8lvhuepx" path="res://assets/art/landing_platform.png" id="1_tiajo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmklx"]
-size = Vector2(45, 20)
+size = Vector2(30, 20)
 
 [node name="LandingPlatform" type="Area2D"]
 z_index = -1
@@ -17,7 +17,7 @@ position = Vector2(0, -17)
 texture = ExtResource("1_tiajo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -10)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_vmklx")
 
 [node name="LandTimer" type="Timer" parent="."]

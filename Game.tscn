@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cn00mn4ive2ax"]
+[gd_scene load_steps=19 format=3 uid="uid://cn00mn4ive2ax"]
 
 [ext_resource type="PackedScene" uid="uid://c7huqukkasfir" path="res://ships/player/PlayerShip.tscn" id="1_1h5ul"]
 [ext_resource type="Texture2D" uid="uid://b2g3joteis713" path="res://assets/art/Space Background.png" id="1_gp3hy"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d85f7el0k0hk" path="res://space_bodies/planets/Planet2.tscn" id="15_tnnjy"]
 [ext_resource type="PackedScene" path="res://space_bodies/planets/Giant_gas_1.tscn" id="16_hk56g"]
 [ext_resource type="PackedScene" uid="uid://wo4m7v4pnch3" path="res://space_bodies/planets/Sun_1.tscn" id="17_x82w3"]
+[ext_resource type="PackedScene" uid="uid://cba86qxysloia" path="res://ships/enemies/MissileEnemy.tscn" id="18_fnypf"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wfy84")
@@ -34,7 +35,7 @@ texture_filter = 2
 texture_repeat = 2
 texture = ExtResource("1_gp3hy")
 region_enabled = true
-region_rect = Rect2(0, 0, 8000, 8000)
+region_rect = Rect2(0, 0, 10000, 10000)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.1)
@@ -44,7 +45,7 @@ z_index = -5
 texture_repeat = 2
 texture = ExtResource("3_2emkl")
 region_enabled = true
-region_rect = Rect2(0, 0, 15000, 15000)
+region_rect = Rect2(0, 0, 20000, 20000)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 0.2)
@@ -53,7 +54,7 @@ motion_scale = Vector2(0.2, 0.2)
 texture_repeat = 2
 texture = ExtResource("4_dqm8h")
 region_enabled = true
-region_rect = Rect2(0, 0, 15000, 15000)
+region_rect = Rect2(0, 0, 20000, 20000)
 
 [node name="Planet_Final" parent="." instance=ExtResource("14_p2qww")]
 position = Vector2(1741, 1353)
@@ -144,4 +145,7 @@ position = Vector2(1834, 309)
 position = Vector2(-1044, 1691)
 
 [node name="Sun_1" parent="." instance=ExtResource("17_x82w3")]
-position = Vector2(-1397, -295)
+position = Vector2(-4099, -487)
+
+[node name="MissileEnemy" parent="." instance=ExtResource("18_fnypf")]
+position = Vector2(660, 92)

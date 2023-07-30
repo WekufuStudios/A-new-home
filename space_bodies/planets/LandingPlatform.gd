@@ -28,7 +28,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if not player.disabled and land_timer.is_stopped() and player.linear_velocity.length() < player.MAX_LINEAR_VELOCITY_TO_LAND and player.angular_velocity < player.MAX_ANGULAR_VELOCITY_TO_LAND:
+	if not player.disabled and land_timer.is_stopped() and player.linear_velocity.length() < player.MAX_LINEAR_VELOCITY_TO_LAND and player.angular_velocity < player.MAX_ANGULAR_VELOCITY_TO_LAND and abs(player.global_rotation - global_rotation) < 0.4:
 		land_timer.start()
-	elif (player.mov_direction != Vector2.ZERO or player.turn_dir != 0) and not land_timer.is_stopped():
+	elif (player.mov_direction != Vector2.ZERO or player.turn_dir != 0 or abs(player.global_rotation - global_rotation) > 0.4) and not land_timer.is_stopped():
 		land_timer.stop()
