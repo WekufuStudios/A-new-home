@@ -16,8 +16,10 @@ var fuel: float = 100:
 				_disable_thrusters(thruster_location_name)
 		fuel_changed.emit(fuel)
 
+@onready var camera: Camera2D = $Camera
 @onready var canon: Canon = $Canon
 @onready var attack_timer: Timer = $AttackTimer
+@onready var ui: CanvasLayer = $UI
 @onready var arrows: Node2D = $Arrows
 @onready var planet_detector: Area2D = $PlanetDetector
 
@@ -57,12 +59,16 @@ func _ready() -> void:
 			var arrow: Arrow = ARROW_SCENE.instantiate()
 			arrows.add_child(arrow)
 			arrow.target = body
+			if body.type in [Planet.Type.GAS_GIANT, Planet.Type.SUN]:
+				ui.add_danger()
 	)
 	planet_detector.body_exited.connect(func(body: Node2D):
 		if body is Planet and not body is PlanetFinal:
 			for arrow in arrows.get_children():
 				if arrow.target == body:
 					arrow.queue_free()
+					if body.type in [Planet.Type.GAS_GIANT, Planet.Type.SUN]:
+						ui.remove_danger()
 	)
 
 
@@ -110,6 +116,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	super(delta)
+
+	# print(OS.get_static_memory_usage() / 1000 / 1000)
 
 #	if contacts_with_planet > 0 and not disabled and land_timer.is_stopped() and linear_velocity.length() < MAX_LINEAR_VELOCITY_TO_LAND and angular_velocity < MAX_ANGULAR_VELOCITY_TO_LAND:
 #		land_timer.start()

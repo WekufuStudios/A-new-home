@@ -3,9 +3,13 @@ extends CanvasLayer
 var condition_tween: Tween = null
 var fuel_tween: Tween = null
 
+var dangers_close: int = 0
+
 @onready var player: PlayerShip = get_parent()
 @onready var condition_bar: TextureProgressBar = $MarginContainer/VBoxContainer/HBoxContainer/ConditionBar
 @onready var fuel_bar: TextureProgressBar = $MarginContainer/VBoxContainer/HBoxContainer2/FuelBar
+
+@onready var warning_message: VBoxContainer = $VBoxContainer
 
 
 func _ready() -> void:
@@ -28,3 +32,17 @@ func _ready() -> void:
 		fuel_tween = create_tween()
 		fuel_tween.tween_property(fuel_bar, "value", round(new_fuel), 0.4).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	)
+
+	warning_message.hide()
+
+
+func add_danger() -> void:
+	dangers_close += 1
+	if not warning_message.visible:
+		warning_message.show()
+
+
+func remove_danger() -> void:
+	dangers_close -= 1
+	if dangers_close == 0:
+		warning_message.hide()

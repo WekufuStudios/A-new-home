@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7huqukkasfir"]
+[gd_scene load_steps=18 format=3 uid="uid://c7huqukkasfir"]
 
 [ext_resource type="PackedScene" uid="uid://by1ijr7rwlm80" path="res://ships/Ship.tscn" id="1_ri7gj"]
 [ext_resource type="Script" path="res://ships/player/PlayerShip.gd" id="2_lyb4r"]
 [ext_resource type="PackedScene" uid="uid://ceqgd5vehjdj4" path="res://ships/thrusters/SmallThruster.tscn" id="2_mirvd"]
+[ext_resource type="Script" path="res://ships/player/Camera.gd" id="4_6isku"]
 [ext_resource type="Script" path="res://ships/player/UI.gd" id="4_56w24"]
 [ext_resource type="Texture2D" uid="uid://d3ibgqaebp6ty" path="res://assets/art/ui/progress bar.png" id="4_m64n3"]
 [ext_resource type="Script" path="res://ships/Canon.gd" id="4_v6lfh"]
@@ -11,7 +12,16 @@
 [ext_resource type="Texture2D" uid="uid://c2y5qh3mlsh16" path="res://assets/art/ui/warning_bar_superior.png" id="9_nd6hy"]
 [ext_resource type="Theme" uid="uid://h480sux0ug1" path="res://menus/Theme.tres" id="9_sg4d3"]
 [ext_resource type="Texture2D" uid="uid://je5m6hy4s7bn" path="res://assets/art/ui/warning_bar_inferior.png" id="10_p5fmk"]
+[ext_resource type="Shader" path="res://assets/shaders/Scroll.gdshader" id="11_bu5hv"]
 [ext_resource type="Texture2D" uid="uid://bmvkw6tvsrf5p" path="res://assets/art/ui/warning_icon.png" id="11_fu6uq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6g63"]
+shader = ExtResource("11_bu5hv")
+shader_parameter/speed = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nbr75"]
+shader = ExtResource("11_bu5hv")
+shader_parameter/speed = -0.2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kld4l"]
 radius = 1652.95
@@ -53,9 +63,10 @@ rotation = 0.451526
 position = Vector2(5, 8)
 rotation = -0.166411
 
-[node name="Camera2D" type="Camera2D" parent="." index="4"]
+[node name="Camera" type="Camera2D" parent="." index="4"]
 ignore_rotation = false
 position_smoothing_speed = 16.0
+script = ExtResource("4_6isku")
 
 [node name="Canon" type="Node2D" parent="." index="5"]
 script = ExtResource("4_v6lfh")
@@ -111,11 +122,17 @@ texture_progress = ExtResource("4_m64n3")
 tint_progress = Color(0.227451, 0.101961, 0.027451, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI" index="1"]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_bottom = 62.0
+grow_horizontal = 0
 theme = ExtResource("9_sg4d3")
 
 [node name="TextureRect" type="TextureRect" parent="UI/VBoxContainer" index="0"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_v6g63")
 layout_mode = 2
 texture = ExtResource("9_nd6hy")
 
@@ -130,7 +147,10 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="UI/VBoxContainer/HBoxContainer" index="1"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 text = "WARNING"
+vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="UI/VBoxContainer/HBoxContainer" index="2"]
 layout_mode = 2
@@ -138,10 +158,13 @@ texture = ExtResource("11_fu6uq")
 stretch_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="UI/VBoxContainer" index="2"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_nbr75")
 layout_mode = 2
 texture = ExtResource("10_p5fmk")
 
 [node name="Arrows" type="Node2D" parent="." index="8"]
+z_index = 1
 
 [node name="PlanetDetector" type="Area2D" parent="." index="9"]
 collision_layer = 0

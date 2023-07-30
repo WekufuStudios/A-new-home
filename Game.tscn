@@ -34,7 +34,7 @@ texture_filter = 2
 texture_repeat = 2
 texture = ExtResource("1_gp3hy")
 region_enabled = true
-region_rect = Rect2(0, 0, 1500, 1500)
+region_rect = Rect2(0, 0, 8000, 8000)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.1)
@@ -44,7 +44,7 @@ z_index = -5
 texture_repeat = 2
 texture = ExtResource("3_2emkl")
 region_enabled = true
-region_rect = Rect2(0, 0, 3000, 3000)
+region_rect = Rect2(0, 0, 15000, 15000)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 0.2)
@@ -53,7 +53,7 @@ motion_scale = Vector2(0.2, 0.2)
 texture_repeat = 2
 texture = ExtResource("4_dqm8h")
 region_enabled = true
-region_rect = Rect2(0, 0, 3000, 3000)
+region_rect = Rect2(0, 0, 15000, 15000)
 
 [node name="Planet_Final" parent="." instance=ExtResource("14_p2qww")]
 position = Vector2(1741, 1353)
