@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cn00mn4ive2ax"]
+[gd_scene load_steps=19 format=3 uid="uid://cn00mn4ive2ax"]
 
 [ext_resource type="PackedScene" uid="uid://c7huqukkasfir" path="res://ships/player/PlayerShip.tscn" id="1_1h5ul"]
 [ext_resource type="Texture2D" uid="uid://b2g3joteis713" path="res://assets/art/Space Background.png" id="1_gp3hy"]
@@ -9,16 +9,47 @@
 [ext_resource type="Texture2D" uid="uid://4a0b24xcp03y" path="res://assets/art/Space Background (3).png" id="4_dqm8h"]
 [ext_resource type="PackedScene" uid="uid://cy3ypb8ikk6e0" path="res://space_bodies/asteroids/Asteroid3.tscn" id="5_mo1o2"]
 [ext_resource type="PackedScene" uid="uid://dr2v6ctkmcent" path="res://ships/enemies/LaserEnemyShip.tscn" id="6_ab02v"]
-[ext_resource type="PackedScene" path="res://space_bodies/sun.tscn" id="10_cps5n"]
+[ext_resource type="PackedScene" uid="uid://clquybq56y11h" path="res://space_bodies/planets/Planet3.tscn" id="10_wgk8x"]
+[ext_resource type="PackedScene" uid="uid://jutaodsqlk15" path="res://space_bodies/planets/Planet4.tscn" id="11_7nbr2"]
+[ext_resource type="PackedScene" uid="uid://c03n7lhpgj6" path="res://space_bodies/planets/Giant_gas_2.tscn" id="12_d1b2r"]
 [ext_resource type="PackedScene" uid="uid://is5top38q38b" path="res://space_bodies/planets/Planet_Final.tscn" id="14_p2qww"]
 [ext_resource type="PackedScene" uid="uid://d85f7el0k0hk" path="res://space_bodies/planets/Planet2.tscn" id="15_tnnjy"]
-[ext_resource type="PackedScene" path="res://space_bodies/planets/Giant_gas_1.tscn" id="16_hk56g"]
+[ext_resource type="PackedScene" uid="uid://b0d4r1q3b7de7" path="res://space_bodies/planets/Giant_gas_1.tscn" id="16_hk56g"]
 [ext_resource type="AudioStream" uid="uid://byxf2iy31bxsy" path="res://assets/music/Nocturne in B flat minor, Op. 9 no. 1.ogg" id="16_pw642"]
 [ext_resource type="PackedScene" uid="uid://wo4m7v4pnch3" path="res://space_bodies/planets/Sun_1.tscn" id="17_x82w3"]
 [ext_resource type="PackedScene" uid="uid://cba86qxysloia" path="res://ships/enemies/MissileEnemy.tscn" id="18_fnypf"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wfy84")
+
+[node name="Planets" type="Node2D" parent="."]
+
+[node name="Planet_Final" parent="Planets" instance=ExtResource("14_p2qww")]
+position = Vector2(28327, -13323)
+
+[node name="Planet1" parent="Planets" instance=ExtResource("3_jxt6p")]
+position = Vector2(422, 182)
+
+[node name="Planet2" parent="Planets" instance=ExtResource("15_tnnjy")]
+position = Vector2(6795, -494)
+
+[node name="Giant_gas_1" parent="Planets" instance=ExtResource("16_hk56g")]
+position = Vector2(13805, -9173)
+
+[node name="Sun_1" parent="Planets" instance=ExtResource("17_x82w3")]
+position = Vector2(3661, -7064)
+
+[node name="Planet3" parent="Planets" instance=ExtResource("10_wgk8x")]
+position = Vector2(21990, -8265)
+
+[node name="Planet4" parent="Planets" instance=ExtResource("11_7nbr2")]
+position = Vector2(4555, -14136)
+
+[node name="Giant_gas_2" parent="Planets" instance=ExtResource("12_d1b2r")]
+position = Vector2(16216, 1393)
+
+[node name="Ship1" parent="." instance=ExtResource("1_1h5ul")]
+position = Vector2(200, 132)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 follow_viewport_enabled = true
@@ -54,56 +85,37 @@ texture = ExtResource("4_dqm8h")
 region_enabled = true
 region_rect = Rect2(0, 0, 20000, 20000)
 
-[node name="Planet_Final" parent="." instance=ExtResource("14_p2qww")]
-position = Vector2(1741, 1353)
+[node name="Enemies" type="Node2D" parent="."]
 
-[node name="Ship1" parent="." instance=ExtResource("1_1h5ul")]
-position = Vector2(200, 132)
+[node name="LaserEnemyShip" parent="Enemies" instance=ExtResource("6_ab02v")]
+position = Vector2(152, 45)
 
-[node name="Planet1" parent="." instance=ExtResource("3_jxt6p")]
-position = Vector2(422, 182)
+[node name="MissileEnemy" parent="Enemies" instance=ExtResource("18_fnypf")]
+position = Vector2(848, 154)
 
-[node name="Asteroid1" parent="." instance=ExtResource("4_4oy65")]
+[node name="Asteroids" type="Node2D" parent="."]
+
+[node name="Asteroid1" parent="Asteroids" instance=ExtResource("4_4oy65")]
 position = Vector2(93, 162)
 inertia = 0.0
 script = null
 
-[node name="Asteroid3" parent="." instance=ExtResource("5_mo1o2")]
+[node name="Asteroid3" parent="Asteroids" instance=ExtResource("5_mo1o2")]
 position = Vector2(300, 78)
 inertia = 0.0
 script = null
 
-[node name="Asteroid2" parent="." instance=ExtResource("4_4oy65")]
+[node name="Asteroid2" parent="Asteroids" instance=ExtResource("4_4oy65")]
 position = Vector2(109, 90)
 inertia = 0.0
 script = null
 
-[node name="Asteroid4" parent="." instance=ExtResource("5_mo1o2")]
+[node name="Asteroid4" parent="Asteroids" instance=ExtResource("5_mo1o2")]
 position = Vector2(193, 278)
 inertia = 0.0
 script = null
 
-[node name="LaserEnemyShip" parent="." instance=ExtResource("6_ab02v")]
-position = Vector2(152, 45)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Sun" parent="." instance=ExtResource("10_cps5n")]
-visible = false
-position = Vector2(588, -101)
-texture_scale = 21.46
-
-[node name="Planet2" parent="." instance=ExtResource("15_tnnjy")]
-position = Vector2(1834, 309)
-
-[node name="Giant_gas_1" parent="." instance=ExtResource("16_hk56g")]
-position = Vector2(-1044, 1691)
-
-[node name="Sun_1" parent="." instance=ExtResource("17_x82w3")]
-position = Vector2(-4099, -487)
-
-[node name="MissileEnemy" parent="." instance=ExtResource("18_fnypf")]
-position = Vector2(848, 154)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_pw642")
