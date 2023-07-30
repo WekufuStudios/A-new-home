@@ -8,6 +8,8 @@ signal fuel_consumed(amount: float)
 
 var directions_enabling_thruster: int = 0
 
+@onready var sound: AudioStreamPlayer2D = $Sound
+
 
 func _init() -> void:
 	emitting = false
@@ -27,6 +29,7 @@ func _process(delta: float) -> void:
 func add() -> void:
 	directions_enabling_thruster += 1
 	if not emitting:
+		sound.play()
 		emitting = true
 		set_process(true)
 
@@ -36,5 +39,6 @@ func remove() -> void:
 	if directions_enabling_thruster < 0:
 		directions_enabling_thruster = 0
 	if directions_enabling_thruster == 0:
+		sound.stop()
 		emitting = false
 		set_process(false)

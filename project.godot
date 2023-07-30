@@ -87,7 +87,7 @@ ui_pause={
 
 2d/default_gravity=0.0
 2d/default_gravity_vector=Vector2(0, 0)
-2d/default_angular_damp=0.1
+2d/default_angular_damp=0.2
 2d/sleep_threshold_linear=0.1
 
 [rendering]
