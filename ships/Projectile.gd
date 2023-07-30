@@ -5,6 +5,7 @@ var dir: Vector2
 var speed: int
 var shooter: Node2D
 
+var explosion_scene: PackedScene = load("res://ships/SmallExplosion.tscn")
 var explosion_scale: float = 0.3
 var dam: int = 2
 var life_time: float = 2
@@ -24,7 +25,7 @@ func _ready() -> void:
 			get_tree().current_scene.add_child(audio)
 			audio.play()
 
-			var explosion: Sprite2D = load("res://ships/SmallExplosion.tscn").instantiate()
+			var explosion: Sprite2D = explosion_scene.instantiate()
 			explosion.position = position
 			explosion.scale = Vector2(explosion_scale, explosion_scale)
 			get_tree().current_scene.add_child(explosion)

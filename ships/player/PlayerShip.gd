@@ -31,7 +31,7 @@ func _ready() -> void:
 	Globals.player = self
 
 	attack_timer.timeout.connect(func():
-		canon.shoot(Vector2.UP.rotated(rotation), 100)
+		canon.shoot(Vector2.UP.rotated(rotation), 150)
 	)
 
 #	body_entered.connect(func(body: PhysicsBody2D):
